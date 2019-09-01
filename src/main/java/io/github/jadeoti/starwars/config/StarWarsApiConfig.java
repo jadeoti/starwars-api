@@ -1,6 +1,7 @@
 package io.github.jadeoti.starwars.config;
 
 import io.github.jadeoti.starwars.service.RestTemplateErrorHandler;
+import io.github.jadeoti.starwars.service.SwapiRemoteService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.client.BufferingClientHttpRequestFactory;
@@ -15,10 +16,16 @@ import org.springframework.web.client.RestTemplate;
 public class StarWarsApiConfig {
     @Bean("restTemplate")
     public RestTemplate restTemplate() {
-        HttpComponentsClientHttpRequestFactory rf = new HttpComponentsClientHttpRequestFactory();
-        RestTemplate restTemplate = new RestTemplate(new BufferingClientHttpRequestFactory(rf));
-        restTemplate.setErrorHandler(new RestTemplateErrorHandler());
+        //HttpComponentsClientHttpRequestFactory rf = new HttpComponentsClientHttpRequestFactory();
+        RestTemplate restTemplate = new RestTemplate();
+        //restTemplate.setErrorHandler(new RestTemplateErrorHandler());
         return restTemplate;
+    }
+
+
+    @Bean("swapiRemoteService")
+    public SwapiRemoteService swapiRemoteService() {
+        return new SwapiRemoteService();
     }
 
 }
