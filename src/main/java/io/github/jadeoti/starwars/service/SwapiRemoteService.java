@@ -4,7 +4,6 @@ import io.github.jadeoti.starwars.model.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
-import
 import org.springframework.web.client.RestTemplate;
 
 /**
